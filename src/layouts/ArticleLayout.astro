@@ -70,7 +70,7 @@ import Layout from './Layout.astro';
 
         <!-- CTA after content -->
         <div class="cta-box" style="margin-top: 3.5rem;">
-          <span class="section-label" style="color: var(--amber);">Ready when you are</span>
+          <span class="section-label" style="color: var(--sky);">Ready when you are</span>
           <h2>Talk to a Licensed Therapist</h2>
           <p>Shemesh Wellness connects you with licensed therapists online — affordable, flexible, available. Free initial consultation from $79/session.</p>
           <a href="https://shemeshwellness.com" class="btn" target="_blank" rel="noopener">
@@ -93,44 +93,44 @@ import Layout from './Layout.astro';
   <style>
     /* ── Article Header ─────────────────────────────────────── */
     .article-header {
-      background: var(--near-black);
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue-royal) 100%);
       padding: 4.5rem 0 4rem;
-      border-bottom: 3px solid var(--amber);
+      border-bottom: 3px solid var(--cobalt);
       margin-bottom: 0;
       position: relative;
       overflow: hidden;
     }
 
-    .article-header::before {
+    /* sun accent blob */
+    .article-header::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 1px;
-      background: var(--amber);
+      top: -60px; right: -60px;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(248,180,80,0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
     }
 
-    .article-header__inner {
-      max-width: 820px;
-    }
+    .article-header__inner { max-width: 820px; }
 
     .article-header h1 {
       color: var(--white);
-      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-size: clamp(2.25rem, 5vw, 4rem);
       font-weight: 800;
-      line-height: 0.96;
+      line-height: 1.05;
       margin: 1rem 0 1.5rem;
-      text-transform: uppercase;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
     }
 
     .article-intro {
       font-size: 1.15rem;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.7);
       line-height: 1.7;
       margin-bottom: 1.75rem;
       max-width: 660px;
       font-weight: 400;
-      border-left: 3px solid var(--amber);
+      border-left: 3px solid var(--sky);
       padding-left: 1.25rem;
     }
 
@@ -139,25 +139,20 @@ import Layout from './Layout.astro';
       align-items: center;
       gap: 0.6rem;
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.4);
       font-weight: 400;
-      letter-spacing: 0.03em;
     }
 
     .article-meta__dot { color: rgba(255,255,255,0.2); }
-
-    .article-meta time { color: rgba(255,255,255,0.35); }
+    .article-meta time  { color: rgba(255,255,255,0.4); }
 
     /* ── Article Body ───────────────────────────────────────── */
     .article-body {
       padding: 4rem 0 0;
-      background: var(--off-white);
+      background: var(--ice);
     }
 
-    /* Progress line at top of article */
-    .article-body .container {
-      padding-bottom: 5rem;
-    }
+    .article-body .container { padding-bottom: 5rem; }
 
     /* ── Author Box ─────────────────────────────────────────── */
     .author-box {
@@ -166,22 +161,22 @@ import Layout from './Layout.astro';
       align-items: flex-start;
       background: var(--white);
       border: 1px solid var(--border);
-      border-left: 3px solid var(--forest);
+      border-left: 4px solid var(--cobalt);
       padding: 1.75rem;
       margin-top: 2.5rem;
+      border-radius: 0 8px 8px 0;
     }
 
     .author-avatar {
       width: 52px;
       height: 52px;
       min-width: 52px;
-      background: var(--forest);
-      color: var(--amber);
-      border-radius: 0;
+      background: var(--navy);
+      color: var(--sky);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--font-display);
       font-size: 0.65rem;
       font-weight: 800;
       letter-spacing: 0.05em;
@@ -189,12 +184,9 @@ import Layout from './Layout.astro';
     }
 
     .author-name {
-      font-family: var(--font-display);
       font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--near-black);
+      font-size: 0.875rem;
+      color: var(--navy);
       margin-bottom: 0.5rem;
     }
 
@@ -205,6 +197,6 @@ import Layout from './Layout.astro';
       line-height: 1.65;
     }
 
-    .author-bio a { color: var(--forest-mid); font-weight: 500; }
+    .author-bio a { color: var(--cobalt); font-weight: 500; }
   </style>
 </Layout>

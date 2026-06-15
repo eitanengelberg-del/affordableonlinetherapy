@@ -84,10 +84,10 @@ const websiteSchema = {
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Fonts: Barlow Condensed (display) + Plus Jakarta Sans (body) -->
+    <!-- Fonts: Plus Jakarta Sans (Lyra-style humanist sans) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet" />
 
     <!-- Schema Markup -->
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
@@ -97,27 +97,22 @@ const websiteSchema = {
     )}
 
     <style is:global>
-      /* ── Design Tokens ───────────────────────────────────────── */
+      /* ── Lyra 2026 Design Tokens ─────────────────────────────── */
       :root {
-        /* Lyra-inspired palette */
-        --amber:        #F0A030;
-        --amber-light:  #FEF0D7;
-        --amber-dark:   #C47C10;
-        --forest:       #0B3D2E;
-        --forest-mid:   #1A5C45;
-        --forest-light: #EAF4EF;
-        --teal:         #00C9A7;
-        --teal-light:   #E0FBF5;
-        --off-white:    #F7F9F8;
-        --white:        #FFFFFF;
-        --near-black:   #0A1A14;
-        --body-text:    #2C3B35;
-        --muted:        #637A71;
-        --border:       #D5E4DC;
-
-        /* Typography */
-        --font-display: 'Barlow Condensed', system-ui, sans-serif;
-        --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
+        --navy:        #002066;
+        --cobalt:      #065CE2;
+        --blue-vivid:  #0064FB;
+        --blue-royal:  #224B90;
+        --sky:         #83CFFF;
+        --cornflower:  #B2D2FD;
+        --ice:         #E8F2FE;
+        --white:       #FFFFFF;
+        --sun:         #F8B450;
+        --sun-bright:  #F89830;
+        --dark-text:   #081C45;
+        --muted:       #4A5F8A;
+        --border:      #C8DEFA;
+        --font-body:   'Plus Jakarta Sans', system-ui, sans-serif;
       }
 
       /* ── Reset ───────────────────────────────────────────────── */
@@ -132,63 +127,52 @@ const websiteSchema = {
 
       body {
         font-family: var(--font-body);
-        background: var(--off-white);
-        color: var(--body-text);
+        background: var(--ice);
+        color: var(--dark-text);
         line-height: 1.7;
         font-weight: 400;
       }
 
       /* ── Typography ──────────────────────────────────────────── */
       h1, h2, h3, h4, h5 {
-        font-family: var(--font-display);
+        font-family: var(--font-body);
         font-weight: 700;
-        line-height: 1.05;
-        letter-spacing: 0.01em;
-        color: var(--near-black);
-        text-transform: uppercase;
+        line-height: 1.1;
+        color: var(--navy);
       }
 
-      h1 { font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; }
-      h2 { font-size: clamp(2rem, 4vw, 3.25rem); margin-top: 3rem; margin-bottom: 1.25rem; }
-      h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); margin-top: 2rem; margin-bottom: 0.75rem; }
-      h4 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+      h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; }
+      h2 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); margin-top: 3rem; margin-bottom: 1.25rem; }
+      h3 { font-size: clamp(1.2rem, 2vw, 1.75rem); margin-top: 2rem; margin-bottom: 0.75rem; }
+      h4 { font-size: 1.15rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
 
-      p { margin-bottom: 1.25rem; color: var(--body-text); line-height: 1.75; }
+      p { margin-bottom: 1.25rem; color: var(--dark-text); line-height: 1.75; }
 
       a {
-        color: var(--forest-mid);
+        color: var(--cobalt);
         text-decoration: underline;
-        text-decoration-color: var(--border);
+        text-decoration-color: var(--cornflower);
         text-underline-offset: 3px;
         transition: color 0.15s, text-decoration-color 0.15s;
       }
-      a:hover { color: var(--forest); text-decoration-color: var(--amber); }
+      a:hover { color: var(--navy); text-decoration-color: var(--cobalt); }
 
       img { max-width: 100%; height: auto; }
 
-      strong { color: var(--near-black); font-weight: 600; }
+      strong { color: var(--navy); font-weight: 600; }
 
       /* ── Layout ──────────────────────────────────────────────── */
-      .container {
-        max-width: 760px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-      }
-
-      .container--wide {
-        max-width: 1120px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-      }
+      .container      { max-width: 760px;  margin: 0 auto; padding: 0 1.5rem; }
+      .container--wide { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
 
       /* ── Navigation ──────────────────────────────────────────── */
       .nav {
-        background: var(--forest);
+        background: var(--navy);
         padding: 0;
         position: sticky;
         top: 0;
         z-index: 100;
-        border-bottom: 2px solid var(--amber);
+        border-bottom: 3px solid var(--cobalt);
       }
 
       .nav__inner {
@@ -199,20 +183,16 @@ const websiteSchema = {
       }
 
       .nav__logo {
-        font-family: var(--font-display);
+        font-family: var(--font-body);
         font-weight: 800;
-        font-size: 1.4rem;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
+        font-size: 1.25rem;
         text-decoration: none;
         color: var(--white);
         line-height: 1;
+        letter-spacing: -0.02em;
       }
 
-      .nav__logo em {
-        color: var(--amber);
-        font-style: normal;
-      }
+      .nav__logo em { color: var(--sky); font-style: normal; }
 
       .nav__links {
         display: flex;
@@ -222,63 +202,56 @@ const websiteSchema = {
       }
 
       .nav__links a {
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: rgba(255,255,255,0.65);
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: rgba(255,255,255,0.7);
         text-decoration: none;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
         transition: color 0.15s;
       }
 
       .nav__links a:hover { color: var(--white); }
 
       .nav__cta {
-        background: var(--amber) !important;
-        color: var(--forest) !important;
-        padding: 0.55rem 1.4rem;
-        border-radius: 4px;
+        background: var(--cobalt) !important;
+        color: var(--white) !important;
+        padding: 0.6rem 1.4rem;
+        border-radius: 8px;
         text-decoration: none !important;
-        font-size: 0.8rem;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
+        font-size: 0.875rem;
+        font-weight: 600;
         transition: background 0.15s, transform 0.15s;
-        font-family: var(--font-display);
       }
 
       .nav__cta:hover {
-        background: var(--white) !important;
+        background: var(--blue-vivid) !important;
         transform: translateY(-1px);
       }
 
       /* ── Buttons ─────────────────────────────────────────────── */
       .btn {
         display: inline-block;
-        background: var(--amber);
-        color: var(--forest) !important;
-        padding: 0.9rem 2.25rem;
-        border-radius: 4px;
-        font-family: var(--font-display);
-        font-weight: 700;
+        background: var(--cobalt);
+        color: var(--white) !important;
+        padding: 0.875rem 2rem;
+        border-radius: 8px;
+        font-family: var(--font-body);
+        font-weight: 600;
         font-size: 1rem;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
         text-decoration: none !important;
         transition: all 0.2s;
-        line-height: 1;
+        line-height: 1.2;
       }
 
       .btn:hover {
-        background: var(--amber-dark);
+        background: var(--blue-vivid);
         transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(240, 160, 48, 0.35);
+        box-shadow: 0 8px 24px rgba(6, 92, 226, 0.35);
       }
 
       .btn--outline {
         background: transparent !important;
         color: var(--white) !important;
-        border: 2px solid rgba(255,255,255,0.4);
+        border: 2px solid rgba(255,255,255,0.45);
       }
 
       .btn--outline:hover {
@@ -288,130 +261,115 @@ const websiteSchema = {
       }
 
       .btn--ghost {
-        background: transparent !important;
-        color: var(--near-black) !important;
+        background: var(--white) !important;
+        color: var(--navy) !important;
         border: 2px solid var(--border);
       }
 
       .btn--ghost:hover {
-        border-color: var(--amber);
-        color: var(--forest) !important;
+        border-color: var(--cobalt);
+        color: var(--cobalt) !important;
         box-shadow: none;
       }
 
-      .btn--forest {
-        background: var(--forest) !important;
+      .btn--navy {
+        background: var(--navy) !important;
         color: var(--white) !important;
       }
 
-      .btn--forest:hover {
-        background: var(--forest-mid) !important;
-        box-shadow: 0 8px 24px rgba(11, 61, 46, 0.3);
+      .btn--navy:hover {
+        background: var(--blue-royal) !important;
+        box-shadow: 0 8px 24px rgba(0, 32, 102, 0.3);
       }
 
       /* ── Tags / Badges ───────────────────────────────────────── */
       .tag {
         display: inline-block;
-        background: var(--amber-light);
-        color: var(--amber-dark);
-        padding: 0.2rem 0.7rem;
-        border-radius: 2px;
-        font-size: 0.7rem;
+        background: var(--cornflower);
+        color: var(--navy);
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.72rem;
         font-weight: 700;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.07em;
         text-transform: uppercase;
         text-decoration: none;
-        font-family: var(--font-display);
         margin-bottom: 1rem;
       }
 
-      .reading-time {
-        color: var(--muted);
-        font-size: 0.875rem;
-        font-weight: 400;
-      }
+      .reading-time { color: var(--muted); font-size: 0.875rem; font-weight: 400; }
 
       /* ── CTA Box ─────────────────────────────────────────────── */
       .cta-box {
-        background: var(--forest);
+        background: linear-gradient(135deg, var(--navy) 0%, var(--blue-royal) 100%);
         color: var(--white);
         padding: 3.5rem;
-        border-radius: 0;
+        border-radius: 16px;
         text-align: center;
         margin: 3rem 0;
         position: relative;
         overflow: hidden;
       }
 
-      .cta-box::before {
+      /* sun accent glow */
+      .cta-box::after {
         content: '';
         position: absolute;
-        top: 0; left: 0; right: 0;
-        height: 3px;
-        background: var(--amber);
+        top: -40px; right: -40px;
+        width: 160px; height: 160px;
+        background: radial-gradient(circle, rgba(248,180,80,0.35) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
       }
 
       .cta-box h2 {
         color: var(--white);
-        font-size: clamp(1.75rem, 4vw, 2.75rem);
+        font-size: clamp(1.75rem, 3.5vw, 2.5rem);
         margin-top: 0;
         margin-bottom: 0.75rem;
       }
 
-      .cta-box p {
-        color: rgba(255,255,255,0.7);
-        margin-bottom: 2rem;
-        font-size: 1.05rem;
-      }
+      .cta-box p { color: rgba(255,255,255,0.75); margin-bottom: 2rem; font-size: 1.05rem; }
 
       /* ── Article Styles ──────────────────────────────────────── */
       article h2 {
-        font-size: clamp(1.5rem, 3vw, 2.25rem);
+        font-size: clamp(1.4rem, 2.5vw, 2rem);
         margin-top: 3rem;
         margin-bottom: 1rem;
-        color: var(--near-black);
+        color: var(--navy);
         padding-bottom: 0.5rem;
-        border-bottom: 2px solid var(--amber-light);
+        border-bottom: 2px solid var(--cornflower);
       }
 
       article h3 {
-        font-size: clamp(1.15rem, 2vw, 1.6rem);
+        font-size: clamp(1.1rem, 1.8vw, 1.5rem);
         margin-top: 2rem;
         margin-bottom: 0.75rem;
-        color: var(--forest);
+        color: var(--blue-royal);
       }
 
-      article h4 {
-        font-size: 1.1rem;
-        color: var(--forest-mid);
-      }
+      article h4 { font-size: 1.05rem; color: var(--cobalt); }
 
-      article ul, article ol {
-        margin: 1rem 0 1.25rem 1.5rem;
-      }
-
-      article li { margin-bottom: 0.6rem; color: var(--body-text); }
+      article ul, article ol { margin: 1rem 0 1.25rem 1.5rem; }
+      article li { margin-bottom: 0.6rem; color: var(--dark-text); }
 
       article blockquote {
-        border-left: 4px solid var(--amber);
+        border-left: 4px solid var(--cobalt);
         padding: 1.25rem 1.75rem;
         margin: 2.5rem 0;
-        background: var(--amber-light);
+        background: var(--ice);
         font-style: italic;
         font-size: 1.05rem;
-        color: var(--forest);
+        color: var(--navy);
+        border-radius: 0 8px 8px 0;
       }
 
-      article strong { color: var(--near-black); }
-
-      article p:has(a) a {
-        color: var(--forest-mid);
-        font-weight: 500;
-      }
+      article strong { color: var(--navy); }
+      article a { color: var(--cobalt); font-weight: 500; }
 
       /* ── Footer ──────────────────────────────────────────────── */
       .footer {
-        background: var(--near-black);
+        background: var(--navy);
         color: rgba(255,255,255,0.5);
         padding: 5rem 0 3rem;
         margin-top: 8rem;
@@ -426,16 +384,14 @@ const websiteSchema = {
       }
 
       .footer__brand {
-        font-family: var(--font-display);
         font-weight: 800;
-        font-size: 1.3rem;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
+        font-size: 1.25rem;
         color: var(--white);
         margin-bottom: 1rem;
+        letter-spacing: -0.02em;
       }
 
-      .footer__brand em { color: var(--amber); font-style: normal; }
+      .footer__brand em { color: var(--sky); font-style: normal; }
 
       .footer__tagline {
         font-size: 0.875rem;
@@ -446,30 +402,24 @@ const websiteSchema = {
       }
 
       .footer__heading {
-        color: var(--amber);
-        font-family: var(--font-display);
+        color: var(--sky);
         font-weight: 700;
         font-size: 0.75rem;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
         margin-bottom: 1.25rem;
       }
 
       .footer__links { list-style: none; }
       .footer__links li { margin-bottom: 0.6rem; }
-      .footer__links a {
-        color: rgba(255,255,255,0.45);
-        text-decoration: none;
-        font-size: 0.875rem;
-        transition: color 0.15s;
-      }
+      .footer__links a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 0.875rem; transition: color 0.15s; }
       .footer__links a:hover { color: var(--white); }
 
       .footer__disclaimer {
         background: rgba(255,255,255,0.05);
         border: 1px solid rgba(255,255,255,0.08);
         padding: 1.25rem 1.5rem;
-        border-radius: 4px;
+        border-radius: 8px;
         font-size: 0.8rem;
         line-height: 1.7;
         color: rgba(255,255,255,0.35);
@@ -488,17 +438,16 @@ const websiteSchema = {
         color: rgba(255,255,255,0.3);
       }
 
-      .footer__bottom a { color: var(--amber); text-decoration: none; }
+      .footer__bottom a { color: var(--sky); text-decoration: none; }
       .footer__bottom a:hover { color: var(--white); }
 
       /* ── Utilities ───────────────────────────────────────────── */
       .section-label {
-        font-family: var(--font-display);
         font-weight: 700;
         font-size: 0.75rem;
-        letter-spacing: 0.15em;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: var(--amber);
+        color: var(--cobalt);
         display: block;
         margin-bottom: 0.75rem;
       }
