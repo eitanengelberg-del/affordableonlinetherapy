@@ -70,25 +70,24 @@ const websiteSchema = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-<meta name="google-site-verification" content="xY1kKW5OpUuIWlSuaEeiqQ9rijPIEEGIomuS5J3hTj4" />
+    <meta name="google-site-verification" content="xY1kKW5OpUuIWlSuaEeiqQ9rijPIEEGIomuS5J3hTj4" />
 
     <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RBYE4H13JW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-RBYE4H13JW');
-</script>
-<meta name="google-site-verification" content="xY1kKW5OpUuIWlSuaEeiqQ9rijPIEEGIomuS5J3hTj4" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RBYE4H13JW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RBYE4H13JW');
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Fonts -->
+    <!-- Fonts: Barlow Condensed (display) + Plus Jakarta Sans (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
     <!-- Schema Markup -->
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
@@ -98,55 +97,78 @@ const websiteSchema = {
     )}
 
     <style is:global>
+      /* ── Design Tokens ───────────────────────────────────────── */
       :root {
-        --sage: #7B9E87;
-        --sage-light: #A8C5B0;
-        --sage-dark: #4A6E55;
-        --cream: #FAF7F2;
-        --warm-white: #FFFEF9;
-        --charcoal: #1C1C1E;
-        --mid-grey: #6B7280;
-        --light-grey: #E8E4DD;
-        --accent: #C17F4A;
-        --accent-light: #F0D5B8;
-        --font-serif: 'DM Serif Display', Georgia, serif;
-        --font-sans: 'DM Sans', system-ui, sans-serif;
+        /* Lyra-inspired palette */
+        --amber:        #F0A030;
+        --amber-light:  #FEF0D7;
+        --amber-dark:   #C47C10;
+        --forest:       #0B3D2E;
+        --forest-mid:   #1A5C45;
+        --forest-light: #EAF4EF;
+        --teal:         #00C9A7;
+        --teal-light:   #E0FBF5;
+        --off-white:    #F7F9F8;
+        --white:        #FFFFFF;
+        --near-black:   #0A1A14;
+        --body-text:    #2C3B35;
+        --muted:        #637A71;
+        --border:       #D5E4DC;
+
+        /* Typography */
+        --font-display: 'Barlow Condensed', system-ui, sans-serif;
+        --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
       }
 
+      /* ── Reset ───────────────────────────────────────────────── */
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
       html {
         font-size: 16px;
         scroll-behavior: smooth;
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
 
       body {
-        font-family: var(--font-sans);
-        background: var(--warm-white);
-        color: var(--charcoal);
+        font-family: var(--font-body);
+        background: var(--off-white);
+        color: var(--body-text);
         line-height: 1.7;
-        font-weight: 300;
-      }
-
-      h1, h2, h3, h4 {
-        font-family: var(--font-serif);
         font-weight: 400;
-        line-height: 1.2;
-        color: var(--charcoal);
       }
 
-      h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
-      h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); margin-top: 2.5rem; margin-bottom: 1rem; }
-      h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); margin-top: 2rem; margin-bottom: 0.75rem; }
+      /* ── Typography ──────────────────────────────────────────── */
+      h1, h2, h3, h4, h5 {
+        font-family: var(--font-display);
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: 0.01em;
+        color: var(--near-black);
+        text-transform: uppercase;
+      }
 
-      p { margin-bottom: 1.25rem; color: #374151; }
+      h1 { font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; }
+      h2 { font-size: clamp(2rem, 4vw, 3.25rem); margin-top: 3rem; margin-bottom: 1.25rem; }
+      h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); margin-top: 2rem; margin-bottom: 0.75rem; }
+      h4 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
 
-      a { color: var(--sage-dark); text-decoration: underline; text-decoration-color: var(--sage-light); text-underline-offset: 3px; }
-      a:hover { color: var(--sage); }
+      p { margin-bottom: 1.25rem; color: var(--body-text); line-height: 1.75; }
+
+      a {
+        color: var(--forest-mid);
+        text-decoration: underline;
+        text-decoration-color: var(--border);
+        text-underline-offset: 3px;
+        transition: color 0.15s, text-decoration-color 0.15s;
+      }
+      a:hover { color: var(--forest); text-decoration-color: var(--amber); }
 
       img { max-width: 100%; height: auto; }
 
+      strong { color: var(--near-black); font-weight: 600; }
+
+      /* ── Layout ──────────────────────────────────────────────── */
       .container {
         max-width: 760px;
         margin: 0 auto;
@@ -154,201 +176,340 @@ const websiteSchema = {
       }
 
       .container--wide {
-        max-width: 1100px;
+        max-width: 1120px;
         margin: 0 auto;
         padding: 0 1.5rem;
       }
 
-      /* Nav */
+      /* ── Navigation ──────────────────────────────────────────── */
       .nav {
-        background: var(--warm-white);
-        border-bottom: 1px solid var(--light-grey);
-        padding: 1.25rem 0;
+        background: var(--forest);
+        padding: 0;
         position: sticky;
         top: 0;
         z-index: 100;
+        border-bottom: 2px solid var(--amber);
       }
 
       .nav__inner {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        height: 64px;
       }
 
       .nav__logo {
-        font-family: var(--font-serif);
-        font-size: 1.25rem;
-        color: var(--charcoal);
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.4rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
         text-decoration: none;
+        color: var(--white);
+        line-height: 1;
       }
 
-      .nav__logo span { color: var(--sage); }
+      .nav__logo em {
+        color: var(--amber);
+        font-style: normal;
+      }
 
       .nav__links {
         display: flex;
-        gap: 2rem;
+        align-items: center;
+        gap: 2.5rem;
         list-style: none;
       }
 
       .nav__links a {
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: var(--mid-grey);
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.65);
         text-decoration: none;
-        letter-spacing: 0.02em;
-        transition: color 0.2s;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        transition: color 0.15s;
       }
 
-      .nav__links a:hover { color: var(--charcoal); }
+      .nav__links a:hover { color: var(--white); }
 
       .nav__cta {
-        background: var(--sage);
-        color: white !important;
-        padding: 0.5rem 1.25rem;
-        border-radius: 100px;
+        background: var(--amber) !important;
+        color: var(--forest) !important;
+        padding: 0.55rem 1.4rem;
+        border-radius: 4px;
         text-decoration: none !important;
-        font-size: 0.875rem;
-        font-weight: 500;
-        transition: background 0.2s;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition: background 0.15s, transform 0.15s;
+        font-family: var(--font-display);
       }
 
-      .nav__cta:hover { background: var(--sage-dark) !important; }
+      .nav__cta:hover {
+        background: var(--white) !important;
+        transform: translateY(-1px);
+      }
 
-      /* Footer */
+      /* ── Buttons ─────────────────────────────────────────────── */
+      .btn {
+        display: inline-block;
+        background: var(--amber);
+        color: var(--forest) !important;
+        padding: 0.9rem 2.25rem;
+        border-radius: 4px;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-decoration: none !important;
+        transition: all 0.2s;
+        line-height: 1;
+      }
+
+      .btn:hover {
+        background: var(--amber-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(240, 160, 48, 0.35);
+      }
+
+      .btn--outline {
+        background: transparent !important;
+        color: var(--white) !important;
+        border: 2px solid rgba(255,255,255,0.4);
+      }
+
+      .btn--outline:hover {
+        background: rgba(255,255,255,0.1) !important;
+        border-color: var(--white);
+        box-shadow: none;
+      }
+
+      .btn--ghost {
+        background: transparent !important;
+        color: var(--near-black) !important;
+        border: 2px solid var(--border);
+      }
+
+      .btn--ghost:hover {
+        border-color: var(--amber);
+        color: var(--forest) !important;
+        box-shadow: none;
+      }
+
+      .btn--forest {
+        background: var(--forest) !important;
+        color: var(--white) !important;
+      }
+
+      .btn--forest:hover {
+        background: var(--forest-mid) !important;
+        box-shadow: 0 8px 24px rgba(11, 61, 46, 0.3);
+      }
+
+      /* ── Tags / Badges ───────────────────────────────────────── */
+      .tag {
+        display: inline-block;
+        background: var(--amber-light);
+        color: var(--amber-dark);
+        padding: 0.2rem 0.7rem;
+        border-radius: 2px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-family: var(--font-display);
+        margin-bottom: 1rem;
+      }
+
+      .reading-time {
+        color: var(--muted);
+        font-size: 0.875rem;
+        font-weight: 400;
+      }
+
+      /* ── CTA Box ─────────────────────────────────────────────── */
+      .cta-box {
+        background: var(--forest);
+        color: var(--white);
+        padding: 3.5rem;
+        border-radius: 0;
+        text-align: center;
+        margin: 3rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-box::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: var(--amber);
+      }
+
+      .cta-box h2 {
+        color: var(--white);
+        font-size: clamp(1.75rem, 4vw, 2.75rem);
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+      }
+
+      .cta-box p {
+        color: rgba(255,255,255,0.7);
+        margin-bottom: 2rem;
+        font-size: 1.05rem;
+      }
+
+      /* ── Article Styles ──────────────────────────────────────── */
+      article h2 {
+        font-size: clamp(1.5rem, 3vw, 2.25rem);
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        color: var(--near-black);
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--amber-light);
+      }
+
+      article h3 {
+        font-size: clamp(1.15rem, 2vw, 1.6rem);
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+        color: var(--forest);
+      }
+
+      article h4 {
+        font-size: 1.1rem;
+        color: var(--forest-mid);
+      }
+
+      article ul, article ol {
+        margin: 1rem 0 1.25rem 1.5rem;
+      }
+
+      article li { margin-bottom: 0.6rem; color: var(--body-text); }
+
+      article blockquote {
+        border-left: 4px solid var(--amber);
+        padding: 1.25rem 1.75rem;
+        margin: 2.5rem 0;
+        background: var(--amber-light);
+        font-style: italic;
+        font-size: 1.05rem;
+        color: var(--forest);
+      }
+
+      article strong { color: var(--near-black); }
+
+      article p:has(a) a {
+        color: var(--forest-mid);
+        font-weight: 500;
+      }
+
+      /* ── Footer ──────────────────────────────────────────────── */
       .footer {
-        background: var(--charcoal);
-        color: #9CA3AF;
-        padding: 3rem 0;
-        margin-top: 6rem;
+        background: var(--near-black);
+        color: rgba(255,255,255,0.5);
+        padding: 5rem 0 3rem;
+        margin-top: 8rem;
         font-size: 0.875rem;
       }
 
       .footer__inner {
         display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
-        gap: 3rem;
+        grid-template-columns: 2.5fr 1fr 1fr;
+        gap: 4rem;
+        margin-bottom: 4rem;
       }
 
-      .footer__brand { font-family: var(--font-serif); color: white; font-size: 1.1rem; margin-bottom: 0.75rem; }
-      .footer__tagline { font-size: 0.875rem; line-height: 1.6; }
+      .footer__brand {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.3rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--white);
+        margin-bottom: 1rem;
+      }
 
-      .footer__heading { color: white; font-weight: 500; margin-bottom: 1rem; font-size: 0.875rem; letter-spacing: 0.05em; text-transform: uppercase; }
+      .footer__brand em { color: var(--amber); font-style: normal; }
+
+      .footer__tagline {
+        font-size: 0.875rem;
+        line-height: 1.7;
+        color: rgba(255,255,255,0.45);
+        margin-bottom: 0;
+        max-width: 340px;
+      }
+
+      .footer__heading {
+        color: var(--amber);
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 1.25rem;
+      }
 
       .footer__links { list-style: none; }
-      .footer__links li { margin-bottom: 0.5rem; }
-      .footer__links a { color: #9CA3AF; text-decoration: none; transition: color 0.2s; }
-      .footer__links a:hover { color: white; }
+      .footer__links li { margin-bottom: 0.6rem; }
+      .footer__links a {
+        color: rgba(255,255,255,0.45);
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: color 0.15s;
+      }
+      .footer__links a:hover { color: var(--white); }
+
+      .footer__disclaimer {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
+        padding: 1.25rem 1.5rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        line-height: 1.7;
+        color: rgba(255,255,255,0.35);
+        margin-bottom: 3rem;
+      }
+
+      .footer__disclaimer strong { color: rgba(255,255,255,0.5); }
 
       .footer__bottom {
-        margin-top: 3rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid #374151;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255,255,255,0.08);
         display: flex;
         justify-content: space-between;
         align-items: center;
         font-size: 0.8rem;
+        color: rgba(255,255,255,0.3);
       }
 
-      .footer__disclaimer {
-        background: #111827;
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        font-size: 0.8rem;
-        line-height: 1.6;
-        color: #6B7280;
-        margin-top: 2rem;
-      }
+      .footer__bottom a { color: var(--amber); text-decoration: none; }
+      .footer__bottom a:hover { color: var(--white); }
 
-      /* CTA Box */
-      .cta-box {
-        background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
-        color: white;
-        padding: 3rem;
-        border-radius: 16px;
-        text-align: center;
-        margin: 3rem 0;
-      }
-
-      .cta-box h2 {
-        color: white;
-        font-size: 1.75rem;
-        margin-top: 0;
+      /* ── Utilities ───────────────────────────────────────────── */
+      .section-label {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.75rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--amber);
+        display: block;
         margin-bottom: 0.75rem;
       }
 
-      .cta-box p { color: rgba(255,255,255,0.85); margin-bottom: 1.5rem; }
-
-      .btn {
-        display: inline-block;
-        background: white;
-        color: var(--sage-dark);
-        padding: 0.875rem 2rem;
-        border-radius: 100px;
-        font-weight: 500;
-        text-decoration: none;
-        font-size: 1rem;
-        transition: all 0.2s;
-      }
-
-      .btn:hover {
-        background: var(--cream);
-        color: var(--sage-dark);
-        transform: translateY(-1px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      }
-
-      .btn--outline {
-        background: transparent;
-        color: white;
-        border: 2px solid rgba(255,255,255,0.6);
-      }
-
-      .btn--outline:hover {
-        background: rgba(255,255,255,0.1);
-        color: white;
-        border-color: white;
-      }
-
-      /* Article styles */
-      article ul, article ol {
-        margin: 1rem 0 1.25rem 1.5rem;
-      }
-
-      article li { margin-bottom: 0.5rem; color: #374151; }
-
-      article blockquote {
-        border-left: 3px solid var(--sage);
-        padding: 1rem 1.5rem;
-        margin: 2rem 0;
-        background: var(--cream);
-        border-radius: 0 8px 8px 0;
-        font-style: italic;
-      }
-
-      .tag {
-        display: inline-block;
-        background: var(--accent-light);
-        color: var(--accent);
-        padding: 0.25rem 0.75rem;
-        border-radius: 100px;
-        font-size: 0.75rem;
-        font-weight: 500;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        margin-bottom: 1rem;
-        text-decoration: none;
-      }
-
-      .reading-time {
-        color: var(--mid-grey);
-        font-size: 0.875rem;
-      }
-
+      /* ── Responsive ──────────────────────────────────────────── */
       @media (max-width: 768px) {
         .nav__links { display: none; }
-        .footer__inner { grid-template-columns: 1fr; gap: 2rem; }
-        .footer__bottom { flex-direction: column; gap: 1rem; text-align: center; }
-        .cta-box { padding: 2rem 1.5rem; }
+        .footer__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+        .footer__bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+        .cta-box { padding: 2.5rem 1.5rem; }
+        h2 { margin-top: 2rem; }
       }
     </style>
   </head>
@@ -357,12 +518,11 @@ const websiteSchema = {
     <nav class="nav">
       <div class="container--wide">
         <div class="nav__inner">
-          <a href="/" class="nav__logo">Affordable<span>Therapy</span></a>
+          <a href="/" class="nav__logo">Affordable<em>Therapy</em></a>
           <ul class="nav__links">
             <li><a href="/articles/what-is-online-therapy">What is Therapy?</a></li>
-            <li><a href="/articles/how-to-find-affordable-therapy">Find Therapist</a></li>
+            <li><a href="/articles/how-to-find-affordable-therapy">Find a Therapist</a></li>
             <li><a href="/articles/types-of-therapy-explained">Types of Therapy</a></li>
-            <li><a href="/articles/online-therapy-vs-in-person">Online vs In-Person</a></li>
           </ul>
           <a href="https://shemeshwellness.com" class="nav__cta" target="_blank" rel="noopener">Start Therapy →</a>
         </div>
@@ -375,7 +535,7 @@ const websiteSchema = {
       <div class="container--wide">
         <div class="footer__inner">
           <div>
-            <div class="footer__brand">AffordableOnlineTherapy.xyz</div>
+            <div class="footer__brand">Affordable<em>Therapy</em>.xyz</div>
             <p class="footer__tagline">A free resource helping people understand therapy, find the right fit, and take the first step toward mental wellness — without the confusion or cost barrier.</p>
           </div>
           <div>
@@ -384,8 +544,8 @@ const websiteSchema = {
               <li><a href="/articles/what-is-online-therapy">What is Online Therapy?</a></li>
               <li><a href="/articles/types-of-therapy-explained">Types of Therapy</a></li>
               <li><a href="/articles/how-to-find-affordable-therapy">Find Affordable Therapy</a></li>
-              <li><a href="/articles/is-online-therapy-effective">Is Online Therapy Effective?</a></li>
               <li><a href="/articles/how-to-start-therapy">How to Start Therapy</a></li>
+              <li><a href="/articles/signs-you-need-therapy">Signs You Need Therapy</a></li>
             </ul>
           </div>
           <div>
@@ -401,12 +561,12 @@ const websiteSchema = {
         </div>
 
         <div class="footer__disclaimer">
-          <strong style="color: #9CA3AF;">Crisis Resources:</strong> If you're in immediate distress, please contact the 988 Suicide & Crisis Lifeline (call or text 988 in the US), Crisis Text Line (text HOME to 741741), or your local emergency services. This website provides educational information only and is not a substitute for professional mental health care.
+          <strong>Crisis Resources:</strong> If you're in immediate distress, contact the 988 Suicide &amp; Crisis Lifeline (call or text 988 in the US), Crisis Text Line (text HOME to 741741), or your local emergency services. This website provides educational information only and is not a substitute for professional mental health care.
         </div>
 
         <div class="footer__bottom">
           <span>© 2025 AffordableOnlineTherapy.xyz — Educational resource</span>
-          <span>Professional therapy available at <a href="https://shemeshwellness.com" style="color: var(--sage-light);" target="_blank" rel="noopener">ShemeshWellness.com</a></span>
+          <span>Professional therapy at <a href="https://shemeshwellness.com" target="_blank" rel="noopener">ShemeshWellness.com</a></span>
         </div>
       </div>
     </footer>

@@ -39,137 +39,210 @@ const heroSchema = {
   articleSchema={heroSchema}
 >
 
-  <!-- Hero -->
+  <!-- ── Hero ─────────────────────────────────────────────────── -->
   <section class="hero">
-    <div class="container">
-      <div class="hero__badge">Free Mental Health Resource</div>
-      <h1>Therapy Shouldn't Be Out of Reach</h1>
-      <p class="hero__sub">We help you understand your options, cut through the confusion, and find affordable online therapy that actually works.</p>
-      <div class="hero__actions">
-        <a href="https://shemeshwellness.com" class="btn btn--primary" target="_blank" rel="noopener">Find a Therapist Now →</a>
-        <a href="/articles/what-is-online-therapy" class="btn btn--ghost">Learn How It Works</a>
+    <div class="container--wide">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <span class="hero__eyebrow">Free Mental Health Resource</span>
+          <h1 class="hero__headline">
+            Therapy<br/>
+            <em>Without</em><br/>
+            Barriers.
+          </h1>
+          <p class="hero__sub">
+            We help you understand your options, cut through the confusion, and find affordable online therapy that actually works.
+          </p>
+          <div class="hero__actions">
+            <a href="https://shemeshwellness.com" class="btn" target="_blank" rel="noopener">Find a Therapist Now →</a>
+            <a href="/articles/what-is-online-therapy" class="btn btn--ghost">How It Works</a>
+          </div>
+          <p class="hero__trust">Trusted by 10,000+ people finding therapy each month</p>
+        </div>
+        <div class="hero__stats">
+          <div class="stat">
+            <span class="stat__num">$79</span>
+            <span class="stat__label">per session at Shemesh Wellness</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">50+</span>
+            <span class="stat__label">conditions covered</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">100%</span>
+            <span class="stat__label">online, from anywhere</span>
+          </div>
+          <div class="stat stat--cta">
+            <a href="https://shemeshwellness.com" target="_blank" rel="noopener" class="stat__link">
+              Free initial consultation →
+            </a>
+          </div>
+        </div>
       </div>
-      <p class="hero__trust">Trusted resource for 10,000+ people finding therapy each month</p>
     </div>
   </section>
 
-  <!-- Trust bar -->
+  <!-- ── Trust Bar ─────────────────────────────────────────────── -->
   <section class="trust-bar">
     <div class="container--wide">
       <div class="trust-bar__inner">
         <div class="trust-item">
-          <span class="trust-item__icon">🧠</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <span>Evidence-based information</span>
         </div>
         <div class="trust-item">
-          <span class="trust-item__icon">🔒</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
           <span>No data sold, ever</span>
         </div>
         <div class="trust-item">
-          <span class="trust-item__icon">💬</span>
-          <span>Written by mental health researchers</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          <span>Written by clinical researchers</span>
         </div>
         <div class="trust-item">
-          <span class="trust-item__icon">✓</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <span>Free to read, always</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Topic clusters -->
+  <!-- ── Topic Grid ─────────────────────────────────────────────── -->
   <section class="topics">
     <div class="container--wide">
-      <h2 class="section-title">Start Here</h2>
-      <p class="section-sub">Choose what's most relevant to you right now</p>
+      <div class="topics__header">
+        <span class="section-label">Start Here</span>
+        <h2 class="topics__title">What brings you here today?</h2>
+      </div>
 
       <div class="topic-grid">
         <a href="/articles/what-is-online-therapy" class="topic-card topic-card--featured">
-          <div class="topic-card__icon">🌐</div>
-          <h3>What is Online Therapy?</h3>
-          <p>How video and text therapy works, what to expect, and whether it's right for you.</p>
-          <span class="topic-card__link">Read the guide →</span>
+          <div class="topic-card__inner">
+            <span class="topic-card__cat">Foundation</span>
+            <h3>What is Online Therapy?</h3>
+            <p>How video and text therapy works, what to expect, and whether it's right for you.</p>
+            <span class="topic-card__link">Read the guide →</span>
+          </div>
         </a>
 
         <a href="/articles/how-to-find-affordable-therapy" class="topic-card">
-          <div class="topic-card__icon">💰</div>
-          <h3>How to Find Affordable Therapy</h3>
-          <p>Real strategies for getting therapy that fits your budget — with or without insurance.</p>
-          <span class="topic-card__link">Read the guide →</span>
+          <div class="topic-card__inner">
+            <span class="topic-card__cat">Cost</span>
+            <h3>Find Affordable Therapy</h3>
+            <p>Real strategies for getting therapy that fits your budget — with or without insurance.</p>
+            <span class="topic-card__link">Read the guide →</span>
+          </div>
         </a>
 
         <a href="/articles/types-of-therapy-explained" class="topic-card">
-          <div class="topic-card__icon">📋</div>
-          <h3>Types of Therapy Explained</h3>
-          <p>CBT, DBT, psychodynamic, EMDR — what they are and which one might suit you.</p>
-          <span class="topic-card__link">Read the guide →</span>
+          <div class="topic-card__inner">
+            <span class="topic-card__cat">Education</span>
+            <h3>Types of Therapy Explained</h3>
+            <p>CBT, DBT, EMDR, ACT — what they are and which one might suit you.</p>
+            <span class="topic-card__link">Read the guide →</span>
+          </div>
         </a>
 
         <a href="/articles/online-therapy-for-anxiety" class="topic-card">
-          <div class="topic-card__icon">😰</div>
-          <h3>Therapy for Anxiety</h3>
-          <p>How online therapy treats anxiety disorders, panic attacks, and social anxiety.</p>
-          <span class="topic-card__link">Read the guide →</span>
+          <div class="topic-card__inner">
+            <span class="topic-card__cat">Condition</span>
+            <h3>Therapy for Anxiety</h3>
+            <p>How online therapy treats anxiety disorders, panic attacks, and social anxiety.</p>
+            <span class="topic-card__link">Read the guide →</span>
+          </div>
         </a>
 
         <a href="/articles/online-therapy-for-depression" class="topic-card">
-          <div class="topic-card__icon">🌧️</div>
-          <h3>Therapy for Depression</h3>
-          <p>Understanding depression treatment online and how to find the right support.</p>
-          <span class="topic-card__link">Read the guide →</span>
+          <div class="topic-card__inner">
+            <span class="topic-card__cat">Condition</span>
+            <h3>Therapy for Depression</h3>
+            <p>Understanding depression treatment online and how to find the right support.</p>
+            <span class="topic-card__link">Read the guide →</span>
+          </div>
         </a>
 
         <a href="/articles/how-to-start-therapy" class="topic-card">
-          <div class="topic-card__icon">🚀</div>
-          <h3>How to Start Therapy</h3>
-          <p>A step-by-step guide to booking your first session and knowing what to expect.</p>
-          <span class="topic-card__link">Read the guide →</span>
+          <div class="topic-card__inner">
+            <span class="topic-card__cat">Getting Started</span>
+            <h3>How to Start Therapy</h3>
+            <p>A step-by-step guide to booking your first session and knowing what to expect.</p>
+            <span class="topic-card__link">Read the guide →</span>
+          </div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- FAQ Section (boosts featured snippets) -->
-  <section class="faq">
-    <div class="container">
-      <h2>Common Questions About Online Therapy</h2>
+  <!-- ── More Articles Strip ───────────────────────────────────── -->
+  <section class="more-articles">
+    <div class="container--wide">
+      <span class="section-label">50+ guides available</span>
+      <div class="more-articles__grid">
+        <a href="/articles/what-is-cbt-therapy" class="article-pill">What is CBT?</a>
+        <a href="/articles/what-is-emdr-therapy" class="article-pill">What is EMDR?</a>
+        <a href="/articles/online-therapy-for-ptsd" class="article-pill">Therapy for PTSD</a>
+        <a href="/articles/online-therapy-for-burnout" class="article-pill">Therapy for Burnout</a>
+        <a href="/articles/online-therapy-for-teens" class="article-pill">Therapy for Teens</a>
+        <a href="/articles/online-therapy-for-men" class="article-pill">Therapy for Men</a>
+        <a href="/articles/online-therapy-for-expats" class="article-pill">Therapy for Expats</a>
+        <a href="/articles/high-functioning-anxiety" class="article-pill">High-Functioning Anxiety</a>
+        <a href="/articles/online-therapy-for-grief" class="article-pill">Grief & Loss</a>
+        <a href="/articles/therapy-myths-debunked" class="article-pill">Therapy Myths Debunked</a>
+        <a href="/articles/how-much-does-online-therapy-cost" class="article-pill">Therapy Cost Guide</a>
+        <a href="/articles/online-therapy-for-adhd" class="article-pill">Therapy for ADHD</a>
+      </div>
+    </div>
+  </section>
 
-      <div class="faq-list">
+  <!-- ── FAQ ───────────────────────────────────────────────────── -->
+  <section class="faq">
+    <div class="container--wide">
+      <div class="faq__header">
+        <span class="section-label">Common Questions</span>
+        <h2>What people ask before starting therapy</h2>
+      </div>
+
+      <div class="faq-grid">
         <details class="faq-item">
           <summary>How much does online therapy cost?</summary>
-          <p>Online therapy typically costs between <strong>$60–$150 per session</strong>. Many platforms offer weekly subscription plans. Sliding scale fees are also common for those who qualify. Compared to traditional in-person therapy ($150–$300/session), online is significantly more affordable.</p>
+          <p>Online therapy typically costs between <strong>$60–$150 per session</strong>. Many platforms offer weekly subscription plans. Sliding scale fees are also common for those who qualify. Shemesh Wellness starts from $79/session. <a href="/articles/how-much-does-online-therapy-cost">Full cost guide →</a></p>
         </details>
 
         <details class="faq-item">
-          <summary>Is online therapy as effective as in-person therapy?</summary>
-          <p>Yes. <strong>Multiple peer-reviewed studies</strong> — including research published in the Journal of Psychological Disorders — confirm that online therapy produces equivalent outcomes to in-person therapy for conditions like anxiety, depression, PTSD, and stress.</p>
+          <summary>Is online therapy as effective as in-person?</summary>
+          <p><strong>Yes.</strong> Multiple peer-reviewed studies confirm that online therapy produces equivalent outcomes to in-person therapy for anxiety, depression, PTSD, OCD, and more. The APA formally recognizes telehealth as evidence-based.</p>
         </details>
 
         <details class="faq-item">
           <summary>Do I need a diagnosis to start therapy?</summary>
-          <p>No. You don't need a diagnosis to begin therapy. Many people start therapy to manage stress, improve relationships, work through life transitions, or simply have a consistent space to process their thoughts. A therapist will assess your needs in your first session.</p>
+          <p>No. You don't need a diagnosis. Many people start therapy to manage stress, improve relationships, navigate life transitions, or simply have a consistent space to process their thoughts. A therapist will assess your needs in the first session.</p>
         </details>
 
         <details class="faq-item">
           <summary>What's the difference between a therapist, psychologist, and psychiatrist?</summary>
-          <p>A <strong>therapist</strong> (counselor/LCSW) provides talk therapy. A <strong>psychologist</strong> holds a doctoral degree and can conduct psychological testing. A <strong>psychiatrist</strong> is a medical doctor who can prescribe medication. Most people start with a therapist.</p>
+          <p>A <strong>therapist</strong> provides talk therapy. A <strong>psychologist</strong> holds a doctoral degree and can conduct psychological testing. A <strong>psychiatrist</strong> is a medical doctor who can prescribe medication. Most people start with a therapist. <a href="/articles/therapist-vs-psychologist-vs-psychiatrist">Full comparison →</a></p>
         </details>
 
         <details class="faq-item">
           <summary>How do I know if a therapist is right for me?</summary>
-          <p>The therapeutic relationship is the single biggest predictor of success. Most good therapists offer a free or discounted first session. It's completely normal to try 2–3 therapists before finding the right fit. <a href="https://shemeshwellness.com" target="_blank" rel="noopener">Shemesh Wellness</a> helps match you with the right therapist from the start.</p>
+          <p>The therapeutic relationship is the biggest predictor of success. It's completely normal to try 2–3 therapists before finding the right fit. Most good therapists offer a free first consultation. <a href="/articles/how-to-know-if-therapist-is-right">Full guide →</a></p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How many therapy sessions will I need?</summary>
+          <p>It depends on your goals. Focused CBT for anxiety or insomnia often runs 6–12 sessions. More complex concerns may take longer. Many people start with a 12-session commitment and evaluate from there. <a href="/articles/how-many-therapy-sessions-do-i-need">Full guide →</a></p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- Shemesh CTA -->
-  <section style="padding: 2rem 0 4rem;">
-    <div class="container">
+  <!-- ── CTA ───────────────────────────────────────────────────── -->
+  <section class="final-cta">
+    <div class="container--wide">
       <div class="cta-box">
-        <h2>Ready to Take the First Step?</h2>
-        <p>Shemesh Wellness offers affordable, flexible online therapy with licensed professionals. Start with a free consultation — no commitment required.</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <span class="section-label" style="color: var(--amber);">Ready when you are</span>
+        <h2>Take the First Step Today</h2>
+        <p>Shemesh Wellness connects you with licensed therapists online — affordable, flexible, and available when you need it. Free initial consultation, from $79/session.</p>
+        <div class="cta-box__actions">
           <a href="https://shemeshwellness.com" class="btn" target="_blank" rel="noopener">Book a Free Consultation →</a>
           <a href="/articles/what-is-online-therapy" class="btn btn--outline">Learn More First</a>
         </div>
@@ -180,205 +253,403 @@ const heroSchema = {
 </Layout>
 
 <style>
-  /* Hero */
+  /* ── Hero ──────────────────────────────────────────────────── */
   .hero {
+    background: var(--white);
     padding: 6rem 0 5rem;
-    background: linear-gradient(180deg, var(--cream) 0%, var(--warm-white) 100%);
-    text-align: center;
-    border-bottom: 1px solid var(--light-grey);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
   }
 
-  .hero__badge {
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--forest-light) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero__eyebrow {
     display: inline-block;
-    background: var(--accent-light);
-    color: var(--accent);
-    padding: 0.35rem 1rem;
-    border-radius: 100px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    margin-bottom: 1.5rem;
+    color: var(--amber);
+    margin-bottom: 1.25rem;
   }
 
-  .hero h1 {
-    margin-bottom: 1.25rem;
-    max-width: 640px;
-    margin-left: auto;
-    margin-right: auto;
+  .hero__headline {
+    font-size: clamp(4rem, 9vw, 7.5rem);
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    color: var(--near-black);
+    margin-bottom: 1.75rem;
+    text-transform: uppercase;
+  }
+
+  .hero__headline em {
+    color: var(--amber);
+    font-style: normal;
   }
 
   .hero__sub {
-    font-size: 1.2rem;
-    color: #4B5563;
-    max-width: 520px;
-    margin: 0 auto 2.5rem;
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 480px;
     line-height: 1.7;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
   }
 
   .hero__actions {
     display: flex;
     gap: 1rem;
-    justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
-
-  .btn--primary {
-    background: var(--sage);
-    color: white;
-    padding: 0.875rem 2rem;
-    border-radius: 100px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.2s;
-    display: inline-block;
-  }
-
-  .btn--primary:hover { background: var(--sage-dark); color: white; transform: translateY(-1px); }
-
-  .btn--ghost {
-    background: transparent;
-    color: var(--charcoal);
-    padding: 0.875rem 2rem;
-    border-radius: 100px;
-    font-weight: 500;
-    text-decoration: none;
-    border: 1.5px solid var(--light-grey);
-    transition: all 0.2s;
-    display: inline-block;
-  }
-
-  .btn--ghost:hover { border-color: var(--sage); color: var(--sage-dark); }
 
   .hero__trust {
     font-size: 0.8rem;
-    color: var(--mid-grey);
+    color: var(--muted);
     margin: 0;
+    font-weight: 400;
   }
 
-  /* Trust bar */
+  /* Stats panel */
+  .hero__stats {
+    background: var(--forest);
+    border-radius: 0;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  .hero__stats::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--amber);
+  }
+
+  .stat {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .stat:last-child { border-bottom: none; padding-bottom: 0; }
+  .stat:first-child { padding-top: 0; }
+
+  .stat__num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: var(--amber);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .stat__label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  .stat--cta { padding-top: 1.75rem; }
+
+  .stat__link {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--amber) !important;
+    text-decoration: none !important;
+    transition: color 0.15s;
+  }
+
+  .stat__link:hover { color: var(--white) !important; }
+
+  /* ── Trust Bar ─────────────────────────────────────────────── */
   .trust-bar {
-    background: var(--charcoal);
+    background: var(--near-black);
     padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
   }
 
   .trust-bar__inner {
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    gap: 3.5rem;
     flex-wrap: wrap;
   }
 
   .trust-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    color: #D1D5DB;
-    font-size: 0.875rem;
+    gap: 0.6rem;
+    color: rgba(255,255,255,0.45);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
   }
 
-  /* Topics */
-  .topics { padding: 5rem 0; }
+  .trust-item svg { color: var(--amber); flex-shrink: 0; }
 
-  .section-title {
-    text-align: center;
-    margin-bottom: 0.5rem;
-    margin-top: 0;
+  /* ── Topics ────────────────────────────────────────────────── */
+  .topics {
+    padding: 6rem 0 4rem;
+    background: var(--off-white);
   }
 
-  .section-sub {
-    text-align: center;
-    color: var(--mid-grey);
+  .topics__header {
     margin-bottom: 3rem;
+  }
+
+  .topics__title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 540px;
+    line-height: 1;
   }
 
   .topic-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
   }
 
   .topic-card {
-    background: var(--cream);
-    border: 1px solid var(--light-grey);
-    border-radius: 12px;
-    padding: 1.75rem;
+    background: var(--white);
     text-decoration: none;
-    color: var(--charcoal);
-    transition: all 0.2s;
+    color: var(--near-black);
+    display: block;
+    transition: background 0.15s;
+    position: relative;
+  }
+
+  .topic-card:hover { background: var(--forest-light); color: var(--near-black); }
+
+  .topic-card:hover .topic-card__link { color: var(--forest); }
+
+  .topic-card--featured {
+    background: var(--forest);
+    color: var(--white);
+  }
+
+  .topic-card--featured:hover { background: var(--forest-mid); }
+
+  .topic-card--featured h3 { color: var(--white); }
+  .topic-card--featured p { color: rgba(255,255,255,0.65); }
+  .topic-card--featured .topic-card__cat { color: var(--amber); }
+  .topic-card--featured .topic-card__link { color: var(--amber); }
+
+  .topic-card__inner {
+    padding: 2.25rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topic-card__cat {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber-dark);
+    margin-bottom: 0.75rem;
     display: block;
   }
 
-  .topic-card:hover {
-    border-color: var(--sage-light);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(123, 158, 135, 0.12);
-    color: var(--charcoal);
+  .topic-card h3 {
+    font-size: 1.5rem;
+    margin: 0 0 0.75rem;
+    line-height: 1.05;
+    color: inherit;
   }
 
-  .topic-card--featured {
-    grid-column: span 1;
-    background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
-    border-color: transparent;
-    color: white;
+  .topic-card p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--muted);
+    margin-bottom: auto;
+    flex: 1;
   }
 
-  .topic-card--featured h3,
-  .topic-card--featured p { color: rgba(255,255,255,0.9); }
-
-  .topic-card--featured .topic-card__link { color: rgba(255,255,255,0.7); }
-
-  .topic-card__icon { font-size: 2rem; margin-bottom: 1rem; }
-
-  .topic-card h3 { font-size: 1.1rem; margin: 0 0 0.5rem; }
-  .topic-card p { font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; }
+  .topic-card--featured p { color: rgba(255,255,255,0.65); }
 
   .topic-card__link {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 1.5rem;
+    transition: color 0.15s;
+  }
+
+  /* ── More Articles ─────────────────────────────────────────── */
+  .more-articles {
+    padding: 3rem 0 5rem;
+    background: var(--off-white);
+  }
+
+  .more-articles__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .article-pill {
+    display: inline-block;
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--body-text);
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--sage-dark);
+    text-decoration: none;
+    transition: all 0.15s;
+    white-space: nowrap;
   }
 
-  /* FAQ */
-  .faq { padding: 5rem 0; background: var(--cream); }
-  .faq h2 { margin-top: 0; margin-bottom: 2rem; }
+  .article-pill:hover {
+    border-color: var(--amber);
+    color: var(--forest);
+    background: var(--amber-light);
+  }
+
+  /* ── FAQ ───────────────────────────────────────────────────── */
+  .faq {
+    padding: 6rem 0;
+    background: var(--near-black);
+  }
+
+  .faq__header {
+    margin-bottom: 3rem;
+  }
+
+  .faq__header h2 {
+    color: var(--white);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    max-width: 560px;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
 
   .faq-item {
-    border: 1px solid var(--light-grey);
-    border-radius: 8px;
-    margin-bottom: 0.75rem;
-    background: white;
+    background: rgba(255,255,255,0.02);
     overflow: hidden;
+    transition: background 0.15s;
   }
 
+  .faq-item[open] { background: rgba(255,255,255,0.04); }
+
   .faq-item summary {
-    padding: 1.25rem 1.5rem;
+    padding: 1.5rem 2rem;
     cursor: pointer;
-    font-weight: 500;
-    font-size: 1rem;
+    font-weight: 600;
+    font-size: 0.95rem;
     list-style: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--charcoal);
+    color: var(--white);
+    letter-spacing: 0.01em;
+    user-select: none;
+    gap: 1rem;
   }
 
   .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::after { content: '+'; font-size: 1.25rem; color: var(--sage); }
+
+  .faq-item summary::after {
+    content: '+';
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--amber);
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
   .faq-item[open] summary::after { content: '−'; }
 
   .faq-item p {
-    padding: 0 1.5rem 1.25rem;
-    font-size: 0.95rem;
-    color: #374151;
-    border-top: 1px solid var(--light-grey);
+    padding: 0 2rem 1.5rem;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
+    border-top: 1px solid rgba(255,255,255,0.06);
     padding-top: 1rem;
     margin: 0;
+    line-height: 1.75;
+  }
+
+  .faq-item p a { color: var(--amber); text-decoration: none; }
+  .faq-item p a:hover { color: var(--white); }
+  .faq-item p strong { color: rgba(255,255,255,0.8); }
+
+  /* ── Final CTA ─────────────────────────────────────────────── */
+  .final-cta {
+    padding: 0 0 6rem;
+    background: var(--near-black);
+  }
+
+  .cta-box__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── Responsive ────────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .hero__inner { grid-template-columns: 1fr; }
+    .hero__stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
+    .stat { padding: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); border-right: 1px solid rgba(255,255,255,0.08); }
+    .hero::after { display: none; }
   }
 
   @media (max-width: 768px) {
+    .hero { padding: 4rem 0 3rem; }
     .topic-grid { grid-template-columns: 1fr; }
+    .faq-grid { grid-template-columns: 1fr; }
     .trust-bar__inner { gap: 1.5rem; }
   }
 </style>
