@@ -1,0 +1,402 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  articleSchema?: object;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  ogImage = '/og-default.png',
+  articleSchema,
+  noindex = false,
+} = Astro.props;
+
+const siteName = 'Affordable Online Therapy';
+const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Affordable Online Therapy",
+  "url": "https://affordableonlinetherapy.xyz",
+  "description": "Your guide to accessible, affordable online therapy and mental health support.",
+  "sameAs": ["https://shemeshwellness.com"]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": siteName,
+  "url": "https://affordableonlinetherapy.xyz",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://affordableonlinetherapy.xyz/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Primary SEO -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    {articleSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    )}
+
+    <style is:global>
+      :root {
+        --sage: #7B9E87;
+        --sage-light: #A8C5B0;
+        --sage-dark: #4A6E55;
+        --cream: #FAF7F2;
+        --warm-white: #FFFEF9;
+        --charcoal: #1C1C1E;
+        --mid-grey: #6B7280;
+        --light-grey: #E8E4DD;
+        --accent: #C17F4A;
+        --accent-light: #F0D5B8;
+        --font-serif: 'DM Serif Display', Georgia, serif;
+        --font-sans: 'DM Sans', system-ui, sans-serif;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        background: var(--warm-white);
+        color: var(--charcoal);
+        line-height: 1.7;
+        font-weight: 300;
+      }
+
+      h1, h2, h3, h4 {
+        font-family: var(--font-serif);
+        font-weight: 400;
+        line-height: 1.2;
+        color: var(--charcoal);
+      }
+
+      h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+      h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); margin-top: 2.5rem; margin-bottom: 1rem; }
+      h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); margin-top: 2rem; margin-bottom: 0.75rem; }
+
+      p { margin-bottom: 1.25rem; color: #374151; }
+
+      a { color: var(--sage-dark); text-decoration: underline; text-decoration-color: var(--sage-light); text-underline-offset: 3px; }
+      a:hover { color: var(--sage); }
+
+      img { max-width: 100%; height: auto; }
+
+      .container {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .container--wide {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* Nav */
+      .nav {
+        background: var(--warm-white);
+        border-bottom: 1px solid var(--light-grey);
+        padding: 1.25rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .nav__logo {
+        font-family: var(--font-serif);
+        font-size: 1.25rem;
+        color: var(--charcoal);
+        text-decoration: none;
+      }
+
+      .nav__logo span { color: var(--sage); }
+
+      .nav__links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav__links a {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--mid-grey);
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        transition: color 0.2s;
+      }
+
+      .nav__links a:hover { color: var(--charcoal); }
+
+      .nav__cta {
+        background: var(--sage);
+        color: white !important;
+        padding: 0.5rem 1.25rem;
+        border-radius: 100px;
+        text-decoration: none !important;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: background 0.2s;
+      }
+
+      .nav__cta:hover { background: var(--sage-dark) !important; }
+
+      /* Footer */
+      .footer {
+        background: var(--charcoal);
+        color: #9CA3AF;
+        padding: 3rem 0;
+        margin-top: 6rem;
+        font-size: 0.875rem;
+      }
+
+      .footer__inner {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 3rem;
+      }
+
+      .footer__brand { font-family: var(--font-serif); color: white; font-size: 1.1rem; margin-bottom: 0.75rem; }
+      .footer__tagline { font-size: 0.875rem; line-height: 1.6; }
+
+      .footer__heading { color: white; font-weight: 500; margin-bottom: 1rem; font-size: 0.875rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+      .footer__links { list-style: none; }
+      .footer__links li { margin-bottom: 0.5rem; }
+      .footer__links a { color: #9CA3AF; text-decoration: none; transition: color 0.2s; }
+      .footer__links a:hover { color: white; }
+
+      .footer__bottom {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #374151;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.8rem;
+      }
+
+      .footer__disclaimer {
+        background: #111827;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        line-height: 1.6;
+        color: #6B7280;
+        margin-top: 2rem;
+      }
+
+      /* CTA Box */
+      .cta-box {
+        background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+        color: white;
+        padding: 3rem;
+        border-radius: 16px;
+        text-align: center;
+        margin: 3rem 0;
+      }
+
+      .cta-box h2 {
+        color: white;
+        font-size: 1.75rem;
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+      }
+
+      .cta-box p { color: rgba(255,255,255,0.85); margin-bottom: 1.5rem; }
+
+      .btn {
+        display: inline-block;
+        background: white;
+        color: var(--sage-dark);
+        padding: 0.875rem 2rem;
+        border-radius: 100px;
+        font-weight: 500;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: all 0.2s;
+      }
+
+      .btn:hover {
+        background: var(--cream);
+        color: var(--sage-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      }
+
+      .btn--outline {
+        background: transparent;
+        color: white;
+        border: 2px solid rgba(255,255,255,0.6);
+      }
+
+      .btn--outline:hover {
+        background: rgba(255,255,255,0.1);
+        color: white;
+        border-color: white;
+      }
+
+      /* Article styles */
+      article ul, article ol {
+        margin: 1rem 0 1.25rem 1.5rem;
+      }
+
+      article li { margin-bottom: 0.5rem; color: #374151; }
+
+      article blockquote {
+        border-left: 3px solid var(--sage);
+        padding: 1rem 1.5rem;
+        margin: 2rem 0;
+        background: var(--cream);
+        border-radius: 0 8px 8px 0;
+        font-style: italic;
+      }
+
+      .tag {
+        display: inline-block;
+        background: var(--accent-light);
+        color: var(--accent);
+        padding: 0.25rem 0.75rem;
+        border-radius: 100px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        text-decoration: none;
+      }
+
+      .reading-time {
+        color: var(--mid-grey);
+        font-size: 0.875rem;
+      }
+
+      @media (max-width: 768px) {
+        .nav__links { display: none; }
+        .footer__inner { grid-template-columns: 1fr; gap: 2rem; }
+        .footer__bottom { flex-direction: column; gap: 1rem; text-align: center; }
+        .cta-box { padding: 2rem 1.5rem; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="nav">
+      <div class="container--wide">
+        <div class="nav__inner">
+          <a href="/" class="nav__logo">Affordable<span>Therapy</span></a>
+          <ul class="nav__links">
+            <li><a href="/articles/what-is-online-therapy">What is Therapy?</a></li>
+            <li><a href="/articles/how-to-find-affordable-therapy">Find Therapist</a></li>
+            <li><a href="/articles/types-of-therapy-explained">Types of Therapy</a></li>
+            <li><a href="/articles/online-therapy-vs-in-person">Online vs In-Person</a></li>
+          </ul>
+          <a href="https://shemeshwellness.com" class="nav__cta" target="_blank" rel="noopener">Start Therapy →</a>
+        </div>
+      </div>
+    </nav>
+
+    <slot />
+
+    <footer class="footer">
+      <div class="container--wide">
+        <div class="footer__inner">
+          <div>
+            <div class="footer__brand">AffordableOnlineTherapy.xyz</div>
+            <p class="footer__tagline">A free resource helping people understand therapy, find the right fit, and take the first step toward mental wellness — without the confusion or cost barrier.</p>
+          </div>
+          <div>
+            <div class="footer__heading">Resources</div>
+            <ul class="footer__links">
+              <li><a href="/articles/what-is-online-therapy">What is Online Therapy?</a></li>
+              <li><a href="/articles/types-of-therapy-explained">Types of Therapy</a></li>
+              <li><a href="/articles/how-to-find-affordable-therapy">Find Affordable Therapy</a></li>
+              <li><a href="/articles/is-online-therapy-effective">Is Online Therapy Effective?</a></li>
+              <li><a href="/articles/how-to-start-therapy">How to Start Therapy</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Get Help Now</div>
+            <ul class="footer__links">
+              <li><a href="https://shemeshwellness.com" target="_blank" rel="noopener">Book a Session</a></li>
+              <li><a href="https://shemeshwellness.com" target="_blank" rel="noopener">Meet Our Therapists</a></li>
+              <li><a href="/articles/online-therapy-for-anxiety">Anxiety Support</a></li>
+              <li><a href="/articles/online-therapy-for-depression">Depression Support</a></li>
+              <li><a href="/articles/online-therapy-for-burnout">Burnout Recovery</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer__disclaimer">
+          <strong style="color: #9CA3AF;">Crisis Resources:</strong> If you're in immediate distress, please contact the 988 Suicide & Crisis Lifeline (call or text 988 in the US), Crisis Text Line (text HOME to 741741), or your local emergency services. This website provides educational information only and is not a substitute for professional mental health care.
+        </div>
+
+        <div class="footer__bottom">
+          <span>© 2025 AffordableOnlineTherapy.xyz — Educational resource</span>
+          <span>Professional therapy available at <a href="https://shemeshwellness.com" style="color: var(--sage-light);" target="_blank" rel="noopener">ShemeshWellness.com</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

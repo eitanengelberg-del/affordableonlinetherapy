@@ -1,0 +1,28 @@
+---
+export const prerender = true;
+
+const pages = [
+  { url: '/', priority: '1.0', changefreq: 'weekly' },
+  { url: '/articles/what-is-online-therapy', priority: '0.9', changefreq: 'monthly' },
+  { url: '/articles/how-to-find-affordable-therapy', priority: '0.9', changefreq: 'monthly' },
+  { url: '/articles/types-of-therapy-explained', priority: '0.9', changefreq: 'monthly' },
+  { url: '/articles/online-therapy-for-anxiety', priority: '0.9', changefreq: 'monthly' },
+  { url: '/articles/how-to-start-therapy', priority: '0.9', changefreq: 'monthly' },
+  { url: '/articles/online-therapy-for-depression', priority: '0.8', changefreq: 'monthly' },
+  { url: '/articles/online-therapy-for-burnout', priority: '0.8', changefreq: 'monthly' },
+  { url: '/articles/online-therapy-vs-in-person', priority: '0.8', changefreq: 'monthly' },
+  { url: '/articles/is-online-therapy-effective', priority: '0.8', changefreq: 'monthly' },
+];
+
+const baseUrl = 'https://affordableonlinetherapy.xyz';
+const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${pages.map(p => `  <url>
+    <loc>${baseUrl}${p.url}</loc>
+    <changefreq>${p.changefreq}</changefreq>
+    <priority>${p.priority}</priority>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+  </url>`).join('\n')}
+</urlset>`;
+---
+{xml}

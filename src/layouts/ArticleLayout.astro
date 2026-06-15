@@ -1,0 +1,148 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  pubDate: string;
+  category: string;
+  readingTime: string;
+  canonical?: string;
+}
+
+const { title, description, pubDate, category, readingTime, canonical } = Astro.props;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": pubDate,
+  "dateModified": pubDate,
+  "author": {
+    "@type": "Organization",
+    "name": "AffordableOnlineTherapy Editorial Team",
+    "url": "https://affordableonlinetherapy.xyz"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Affordable Online Therapy",
+    "url": "https://affordableonlinetherapy.xyz"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonical || Astro.url.href
+  }
+};
+
+import Layout from './Layout.astro';
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonical={canonical}
+  articleSchema={articleSchema}
+>
+  <article>
+    <header class="article-header">
+      <div class="container">
+        <a href={`/category/${category.toLowerCase().replace(/ /g, '-')}`} class="tag">{category}</a>
+        <h1>{title}</h1>
+        <p class="article-meta">
+          <span class="reading-time">📖 {readingTime} read</span>
+          <span style="color: #D1D5DB; margin: 0 0.5rem;">·</span>
+          <time datetime={pubDate} style="color: #6B7280; font-size: 0.875rem;">
+            {new Date(pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+        </p>
+        <p class="article-intro">{description}</p>
+      </div>
+    </header>
+
+    <div class="article-body container">
+      <slot />
+
+      <!-- Inline CTA after content -->
+      <div class="cta-box" style="margin-top: 3rem;">
+        <h2>Ready to Talk to Someone?</h2>
+        <p>Shemesh Wellness connects you with licensed therapists online — affordable, flexible, and available when you need it.</p>
+        <a href="https://shemeshwellness.com" class="btn" target="_blank" rel="noopener">
+          Get Started at ShemeshWellness.com →
+        </a>
+      </div>
+
+      <!-- Author note -->
+      <div class="author-box">
+        <div class="author-avatar">✦</div>
+        <div>
+          <div class="author-name">AffordableOnlineTherapy Editorial Team</div>
+          <p class="author-bio">Our content is written to help people understand their mental health options. All articles are reviewed for accuracy and aligned with current clinical guidance. We are not a therapy provider — for professional support, visit <a href="https://shemeshwellness.com" target="_blank" rel="noopener">ShemeshWellness.com</a>.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <style>
+    .article-header {
+      background: linear-gradient(180deg, var(--cream) 0%, var(--warm-white) 100%);
+      padding: 4rem 0 3rem;
+      border-bottom: 1px solid var(--light-grey);
+      margin-bottom: 3rem;
+    }
+
+    .article-meta {
+      margin: 1rem 0 1.5rem;
+      color: var(--mid-grey);
+    }
+
+    .article-intro {
+      font-size: 1.2rem;
+      color: #4B5563;
+      line-height: 1.7;
+      border-left: 3px solid var(--sage);
+      padding-left: 1.25rem;
+      margin-bottom: 0;
+    }
+
+    .article-body {
+      padding-bottom: 4rem;
+    }
+
+    .author-box {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      background: var(--cream);
+      border: 1px solid var(--light-grey);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-top: 2rem;
+    }
+
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      background: var(--sage);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--charcoal);
+    }
+
+    .author-bio {
+      font-size: 0.85rem;
+      color: var(--mid-grey);
+      margin: 0;
+      line-height: 1.6;
+    }
+  </style>
+</Layout>
